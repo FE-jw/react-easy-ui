@@ -5,9 +5,9 @@ A React UI component library built with TypeScript, Vite, and SCSS Modules.
 ## Installation
 
 ```bash
-yarn add react-easy-ui
+yarn add @jwook/react-ui
 # or
-npm install react-easy-ui
+npm install @jwook/react-ui
 ```
 
 ## Usage
@@ -15,13 +15,13 @@ npm install react-easy-ui
 Import it in a top-level component
 
 ```tsx
-import 'react-easy-ui/style.css';
+import '@jwook/react-ui/style.css';
 ```
 
 Import the components and use them in your React application.
 
 ```tsx
-import { EButton } from 'react-easy-ui';
+import { EButton } from '@jwook/react-ui';
 
 function App() {
   return (
