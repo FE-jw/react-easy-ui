@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": true,
+  "html.format.unformatted": "",
+  "html.format.wrapAttributesIndentSize": null,
+  "html.format.unformattedContentDelimiter": "style",
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "html.format.extraLiners": "",
+    "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
