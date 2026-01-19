@@ -7,11 +7,21 @@ export default function App() {
       eaque vel molestias velit iusto ipsum beatae, reiciendis expedita explicabo sit non.
       <EButton
         onClick={() => {
-          console.log('EButton');
+          console.log('primary');
         }}
       >
-        asd
+        primary
       </EButton>
+      <EButton
+        variant="secondary"
+        isDisabled={false}
+        onClick={() => {
+          console.log('secondary');
+        }}
+      >
+        secondary
+      </EButton>
+      <EButton isDisabled={true}>Disabled</EButton>
     </>
   );
 }
