@@ -20,7 +20,8 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,scss}\"",
     "test": "vitest",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "publish": "npm publish --access public"
   },
   "peerDependencies": {
     "react": "^19.0.0",
