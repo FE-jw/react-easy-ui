@@ -7,9 +7,17 @@ export interface EButtonProps {
   variant?: 'primary' | 'secondary';
   isDisabled?: boolean;
   onClick?: () => void;
+  [key: string]: unknown;
 }
 
-export function EButton({ children, className, variant = 'primary', isDisabled = false, onClick }: EButtonProps) {
+export function EButton({
+  children,
+  className,
+  variant = 'primary',
+  isDisabled = false,
+  onClick,
+  ...rest
+}: EButtonProps) {
   const cn = `${className ? `${className} ` : ''}${isDisabled ? `${style.isDisabled} ` : `${style[variant]} `}${style.button}`;
 
   // onClick Handler
@@ -20,7 +28,7 @@ export function EButton({ children, className, variant = 'primary', isDisabled =
   };
 
   return (
-    <button type="button" className={cn} onClick={handleOnClick}>
+    <button type="button" className={cn} onClick={handleOnClick} {...rest}>
       {children}
     </button>
   );
