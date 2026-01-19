@@ -1,4 +1,10 @@
+@use 'sass:color';
+@use './../common.scss';
+
 :root {
+  --easy-button-display: inline-flex;
+  --easy-button-justify-content: center;
+  --easy-button-align-items: center;
   --easy-button-height: 40px;
   --easy-button-padding: 5px 10px;
   --easy-button-border: none;
@@ -6,44 +12,51 @@
   --easy-button-line-height: 1.2;
   --easy-button-font-family: inherit;
   --easy-button-font-size: 14px;
-  --easy-button-font-weight: normal;
+  --easy-button-font-color: #fff;
+  --easy-button-font-weight: 400;
+  --easy-button-cursor: pointer;
+  --easy-button-transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  --easy-button-vertical-align: top;
+  --easy-button-isDisabled-cursor: not-allowed;
 }
 
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height:var(--easy-button-height);
+  display: var(--easy-button-display);
+  justify-content: var(--easy-button-justify-content);
+  align-items: var(--easy-button-align-items);
+  height: var(--easy-button-height);
   padding: var(--easy-button-padding);
-  border:var(--easy-button-border);
+  border: var(--easy-button-border);
   border-radius: var(--easy-button-border-radius);
   font-family: var(--easy-button-font-family);
-  line-height:var(--easy-button-line-height);
+  line-height: var(--easy-button-line-height);
   font-size: var(--easy-button-font-size);
   font-weight: var(--easy-button-font-weight);
-  cursor: pointer;
-  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  cursor: var(--easy-button-cursor);
+  transition: var(--easy-button-transition);
+  vertical-align: var(--easy-button-vertical-align);
 
-  &.primary	{
-    background-color: #007bff;
-    color: white;
+  &.primary {
+    color: var(--easy-primary-font-color);
+    background-color: var(--easy-primary-color);
 
     &:hover {
-      background-color: #0056b3;
+      background-color: var(--easy-primary-hover-color);
     }
   }
 
   &.secondary {
-    background-color: #6c757d;
-    color: white;
+    color: var(--easy-secondary-font-color);
+    background-color: var(--easy-secondary-color);
 
     &:hover {
-      background-color: #545b62;
+      background-color: var(--easy-secondary-hover-color);
     }
   }
 
-  &:disabled {
-    opacity: 0.65;
-    cursor: not-allowed;
+  &.isDisabled {
+    color: var(--easy-button-font-color);
+    background-color: var(--easy-disabled-color);
+    cursor: var(--easy-button-isDisabled-cursor);
   }
 }
