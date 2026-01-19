@@ -27,9 +27,14 @@ jobs:
       - name: Build Storybook
         run: yarn build-storybook
 
+      - name: Move storybook-static to public
+        run: |
+          mkdir ./public
+          mv ./storybook-static ./public/storybook
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./storybook-static
+          publish_dir: ./public
           publish_branch: gh-pages
