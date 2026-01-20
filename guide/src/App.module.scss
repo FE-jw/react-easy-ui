@@ -4,16 +4,16 @@
   min-width: 360px;
   min-height: 100vh;
   min-height: 100dvh;
-  background: #fafbfc;
+  background: var(--sub-bg);
 
   main {
     flex: 1;
     width: calc(100% - 20px);
     margin: 16px auto;
     padding: 20px;
-    background: #fff;
+    background: var(--main-bg);
     border-radius: var(--border-radius);
-    box-shadow: 0 2px 16px rgba(60, 60, 60, 0.06);
+    box-shadow: 0 2px 16px var(--box-shadow-color);
 
     section {
       margin-bottom: 40px;
@@ -27,7 +27,7 @@
 
       p {
         font-size: 1.6rem;
-        color: #444;
+        color: var(--main-txt);
         line-height: 1.7;
       }
     }
