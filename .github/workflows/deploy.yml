@@ -1,4 +1,4 @@
-name: Deploy Storybook to GitHub Pages
+name: Deploy Result to GitHub Pages
 
 on:
   push:
@@ -27,10 +27,11 @@ jobs:
       - name: Build Storybook
         run: yarn build-storybook
 
-      - name: Move storybook-static to public
+      - name: Move files to public
         run: |
-          mkdir ./public
-          mv ./storybook-static ./public/storybook
+          mkdir -p ./public
+          if [ -d ./storybook-static ]; then mv ./storybook-static ./public/storybook; fi
+          if [ -d ./guide ]; then mv ./guide ./public/guide; fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
