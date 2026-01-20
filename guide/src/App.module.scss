@@ -1,15 +1,16 @@
 .app-guide {
-  background: #fafbfc;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-width: 360px;
+  min-height: 100vh;
+  background: #fafbfc;
 
   main {
     flex: 1;
-    width: 100%;
-    margin: 16px 8px;
+    width: calc(100% - 20px);
+    margin: 16px auto;
     background: #fff;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     box-shadow: 0 2px 16px rgba(60, 60, 60, 0.06);
     padding: 20px;
     section {
@@ -33,6 +34,7 @@
 @media (min-width: 768px) {
   .app-guide {
     main {
+      width: calc(100% - 40px);
       max-width: 1200px;
       margin: 32px auto;
       padding: 30px;

@@ -34,7 +34,7 @@
     height: 3px;
     margin: 6px auto;
     background: var(--primary-color);
-    border-radius: 2px;
+    border-radius: var(--border-radius);
     transition: 0.3s;
     position: relative;
   }
@@ -65,7 +65,7 @@ nav {
     margin: 0 0 12px 0;
     font-size: 1.7rem;
     padding: 10px 18px;
-    border-radius: 6px;
+    border-radius: var(--border-radius);
     width: 100%;
     background: transparent;
     box-sizing: border-box;
@@ -118,7 +118,7 @@ nav {
       width: auto;
       font-size: 1.7rem;
       padding: 6px 18px;
-      border-radius: 6px;
+      border-radius: var(--border-radius);
       display: inline-block;
     }
   }
