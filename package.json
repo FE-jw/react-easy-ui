@@ -43,7 +43,8 @@
     "publish": "npm publish --access public",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
-    "build:guide": "yarn workspace guide build"
+    "build:guide": "yarn workspace guide build",
+    "generate:component": "node ./scripts/generateComponent.mjs"
   },
   "peerDependencies": {
     "react": "^19.0.0",
