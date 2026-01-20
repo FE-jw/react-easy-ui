@@ -1,15 +1,19 @@
+import style from './App.module.scss';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 
 export default function App() {
   return (
-    <div className="app-guide">
+    <div className={style['app-guide']}>
       <Header />
       <main>
         <section id="intro">
           <h2>소개</h2>
           <p>
-            이 페이지는 <strong>react-ui</strong> 패키지의 리액트 컴포넌트 사용법과 커스텀 방법을 안내합니다.
+            이 페이지는 <strong className="txt-box">@jwook/react-ui</strong> 패키지의 리액트 컴포넌트 사용법과 커스텀
+            방법을 안내합니다.
+            <br />
+            접두어 E는 Easy의 약자입니다. 누구나 쉽게 사용할 수 있는 컴포넌트를 목표로 합니다.
           </p>
         </section>
         <section id="components">

@@ -15,10 +15,20 @@ $cdn: 'https://cdn.jsdelivr.net/gh/fe-jw/fe-jw.github.io/';
   }
 }
 
+:root {
+  --primary-color: #43a047;
+  --secondary-color: #388e3c;
+  --thirdary-color: #2e7d32;
+  --hover-bg: #e8f5e9;
+  --focus-bg: #c8e6c9;
+  --active-bg: #a5d6a7;
+}
+
 * {
   margin: 0;
   padding: 0;
   list-style: none;
+  box-sizing: border-box;
 }
 html {
   -webkit-text-size-adjust: none;
@@ -27,50 +37,11 @@ html {
 body {
   line-height: 1.3;
   font-family: 'Pretendard', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 200;
-  color: #000;
+  color: #212121;
 }
-
-.app-guide {
-  background: #fafbfc;
-  color: #222;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  main {
-    flex: 1;
-    max-width: 100vw;
-    margin: 16px 8px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 16px rgba(60, 60, 60, 0.06);
-    padding: 20px;
-    section {
-      margin-bottom: 40px;
-      h2 {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #1976d2;
-        margin-bottom: 12px;
-      }
-      p {
-        color: #444;
-        line-height: 1.7;
-        font-size: 1.6rem;
-      }
-    }
-  }
-}
-
-// PC 스타일
-@media (min-width: 768px) {
-  .app-guide {
-    main {
-      max-width: 90rem;
-      margin: 32px auto;
-      padding: 30px;
-    }
-  }
+.txt-box {
+  color: var(--thirdary-color);
+  background-color: var(--hover-bg);
 }
