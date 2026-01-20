@@ -61,6 +61,14 @@ body {
   font-weight: 200;
   color: var(--main-txt);
 }
+button {
+  border: none;
+  border-radius: 0;
+  line-height: inherit;
+  font: inherit;
+  background: none;
+  cursor: pointer;
+}
 .txt-box {
   color: var(--primary-color);
   background-color: var(--hover-bg);

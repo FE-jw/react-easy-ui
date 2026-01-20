@@ -1,0 +1,30 @@
+.themeToggleWrap {
+  border-radius: 50%;
+  background-color: var(--hover-bg);
+
+  &.mobile {
+    margin-right: 4px;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &.pc {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+}
+
+.themeToggleBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 20px;
+}
