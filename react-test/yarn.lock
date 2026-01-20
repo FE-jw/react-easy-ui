@@ -2239,16 +2239,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^19.0.0":
-  version: 19.2.3
-  resolution: "react@npm:19.2.3"
-  checksum: 10c0/094220b3ba3a76c1b668f972ace1dd15509b157aead1b40391d1c8e657e720c201d9719537375eff08f5e0514748c0319063392a6f000e31303aafc4471f1436
-  languageName: node
-  linkType: hard
-
-"react@workspace:.":
+"react-test@workspace:.":
   version: 0.0.0-use.local
-  resolution: "react@workspace:."
+  resolution: "react-test@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.39.1"
     "@types/node": "npm:^24.10.1"
@@ -2266,6 +2259,13 @@ __metadata:
     vite: "npm:^7.2.4"
   languageName: unknown
   linkType: soft
+
+"react@npm:^19.0.0":
+  version: 19.2.3
+  resolution: "react@npm:19.2.3"
+  checksum: 10c0/094220b3ba3a76c1b668f972ace1dd15509b157aead1b40391d1c8e657e720c201d9719537375eff08f5e0514748c0319063392a6f000e31303aafc4471f1436
+  languageName: node
+  linkType: hard
 
 "resolve-from@npm:^4.0.0":
   version: 4.0.0
