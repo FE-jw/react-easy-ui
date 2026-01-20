@@ -24,17 +24,17 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build Storybook
-        run: yarn build:storybook
-
       - name: Build Guide
         run: yarn build:guide
+
+      - name: Build Storybook
+        run: yarn build:storybook
 
       - name: Move files to public
         run: |
           mkdir -p ./public
+          if [ -d ./guide/dist ]; then mv ./guide/dist/* ./public/; fi
           if [ -d ./storybook-static ]; then mv ./storybook-static ./public/storybook; fi
-          if [ -d ./guide ]; then mv ./guide/dist ./public/guide; fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
