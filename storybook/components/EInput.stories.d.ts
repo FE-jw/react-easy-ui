@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
 import { EInput } from './EInput';
 
 declare const meta: Meta<typeof EInput>;
