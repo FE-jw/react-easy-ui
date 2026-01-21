@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import style from './EButton.module.scss';
 
 export interface EButtonProps {
@@ -20,7 +19,7 @@ export function EButton({
   onClick,
   ...rest
 }: EButtonProps) {
-  const cn = `${className ? `${className} ` : ''}${isDisabled ? `${style.isDisabled} ` : `${style[variant]} `}${style.button}`;
+  const cn = `${className ? `${className} ` : ''}${isDisabled ? `${style.isDisabled} ` : `${style[variant]} `}${style.EButton}`;
 
   // onClick Handler
   const handleOnClick = () => {

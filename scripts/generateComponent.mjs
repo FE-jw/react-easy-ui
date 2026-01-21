@@ -38,12 +38,11 @@ async function main() {
   // 템플릿
   const tsxTemplate = `'use client';
 
-import React from 'react';
 import style from './${componentName}.module.scss';
 
 export interface ${componentName}Props {}
 
-export default function ${componentName}() {
+export function ${componentName}() {
   return ( <></> );
 }`;
 
@@ -57,6 +56,9 @@ import ${componentName} from './${componentName}';
 const meta: Meta<typeof ${componentName}> = {
   title: 'Components/${componentName}',
   component: ${componentName},
+  parameters: {
+    layout: 'centered'
+  },
   tags: ['autodocs'],
 };
 export default meta;
@@ -64,7 +66,7 @@ type Story = StoryObj<typeof ${componentName}>;
 
 export const Default: Story = {
   args: {
-	children: '${componentName} 기본',
+	  children: '${componentName} 기본',
   },
 };`;
 

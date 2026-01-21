@@ -69,6 +69,9 @@ button {
   background: none;
   cursor: pointer;
 }
+a {
+  color: inherit;
+}
 .txt-box {
   color: var(--primary-color);
   background-color: var(--hover-bg);

@@ -1,4 +1,4 @@
-import { EButton } from './../../src/components/EButton';
+import { EButton, EInput } from './../../src';
 
 export default function App() {
   return (
@@ -22,6 +22,10 @@ export default function App() {
         secondary
       </EButton>
       <EButton isDisabled={true}>Disabled</EButton>
+      <div className="flex gap-[10px] w-[600px]">
+        <EInput type="search" placeholder="test" />
+        <EInput type="search" placeholder="disabled" isDisabled={true} />
+      </div>
     </>
   );
 }
