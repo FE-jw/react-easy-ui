@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { EButton } from './EButton';
 
 declare const meta: Meta<typeof EButton>;
