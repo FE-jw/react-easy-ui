@@ -1,6 +1,9 @@
-import { EButton, EInput } from './../../src';
+import { useState } from 'react';
+import { EButton, EInput, EToggleSwitch } from './../../src';
 
 export default function App() {
+  const [toggleSwitch, setToggleSwitch] = useState<boolean>(false);
+
   return (
     <>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. A, qui ad autem facere veniam odit nihil debitis eius
@@ -26,6 +29,7 @@ export default function App() {
         <EInput type="search" placeholder="test" />
         <EInput type="search" placeholder="disabled" isDisabled={true} />
       </div>
+      <EToggleSwitch value={toggleSwitch} isDisabled={false} onChange={setToggleSwitch} />
     </>
   );
 }
