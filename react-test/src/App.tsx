@@ -1,4 +1,6 @@
 import { useState } from 'react';
+
+// Components
 import { EButton, EInput, EToggleSwitch } from './../../src';
 
 export default function App() {
