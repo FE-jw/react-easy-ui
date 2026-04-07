@@ -2,6 +2,11 @@
 
 A React UI component library built with TypeScript, Vite, and SCSS Modules.
 
+## Links
+
+- Guide: https://fe-jw.github.io/react-ui
+- Storybook: https://fe-jw.github.io/react-ui/storybook
+
 ## Installation
 
 ```bash
