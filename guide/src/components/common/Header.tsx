@@ -1,16 +1,15 @@
-import { useState } from 'react';
 import style from './Header.module.scss';
 import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
-  const [navOpen, setNavOpen] = useState<boolean>(false);
+  // const [navOpen, setNavOpen] = useState<boolean>(false);
 
   return (
     <header className={style.headerWrap}>
       <div className={style.header}>
         <h1 className={style.title}>@jwook/react-ui</h1>
         <ThemeToggle view="mobile" />
-        <button
+        {/* <button
           className={navOpen ? `${style.hamburger} ${style.active}` : style.hamburger}
           aria-label={navOpen ? '메뉴 닫기' : '메뉴 열기'}
           aria-expanded={navOpen}
@@ -20,14 +19,15 @@ export default function Header() {
           <span aria-hidden="true" />
           <span aria-hidden="true" />
           <span aria-hidden="true" />
-        </button>
-        <nav id="main-nav" aria-label="주요 메뉴" className={navOpen ? style.open : ''}>
-          <a href="#components" onClick={() => setNavOpen(false)}>
+        </button> */}
+        {/* <nav id="main-nav" aria-label="주요 메뉴" className={navOpen ? style.open : ''}> */}
+        <nav id="main-nav" aria-label="주요 메뉴">
+          {/* <a href="#components" onClick={() => setNavOpen(false)}>
             컴포넌트 목록
           </a>
           <a href="#custom" onClick={() => setNavOpen(false)}>
             커스텀 방법
-          </a>
+          </a> */}
           <ThemeToggle view="pc" />
         </nav>
       </div>
