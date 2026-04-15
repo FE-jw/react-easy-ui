@@ -1,35 +1,45 @@
 import { useState, useEffect } from 'react';
 import style from './ThemeToggle.module.scss';
 
+type Theme = 'light' | 'dark';
+
 interface ThemeToggleProps {
   view: 'mobile' | 'pc';
 }
 
+function getInitialTheme(): Theme {
+  if (typeof window === 'undefined') return 'light';
+
+  const saved = localStorage.getItem('react-ui-theme');
+  if (saved === 'light' || saved === 'dark') return saved;
+
+  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+}
+
 export default function ThemeToggle({ view }: ThemeToggleProps) {
-  const [theme, setTheme] = useState<string>(() => document.documentElement.dataset.theme || 'light');
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   const toggleTheme = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
+    const next: Theme = theme === 'dark' ? 'light' : 'dark';
 
     document.documentElement.dataset.theme = next;
     localStorage.setItem('react-ui-theme', next);
     setTheme(next);
 
-    // storage 이벤트는 같은 탭에서는 발생하지 않으므로 커스텀 이벤트로 동기화
     window.dispatchEvent(new Event('theme-changed'));
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem('react-ui-theme');
-    if (saved) {
-      document.documentElement.dataset.theme = saved;
-      setTheme(saved);
-    }
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('react-ui-theme', theme);
+  }, [theme]);
 
-    // storage 이벤트(다른 탭), theme-changed(같은 탭) 모두 감지
+  useEffect(() => {
     const syncTheme = () => {
-      const current = document.documentElement.dataset.theme || 'light';
-      setTheme(current);
+      const current = document.documentElement.dataset.theme;
+      if (current === 'light' || current === 'dark') {
+        setTheme(prev => (prev === current ? prev : current));
+      }
     };
 
     window.addEventListener('storage', syncTheme);
