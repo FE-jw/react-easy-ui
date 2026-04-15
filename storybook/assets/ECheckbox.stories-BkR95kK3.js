@@ -1,4 +1,4 @@
-import{E as D}from"./ECheckbox-CSJ2vej0.js";import"./jsx-runtime-BjG_zV1W.js";import"./index-BNURykns.js";const f={title:"Components/ECheckbox",component:D,parameters:{layout:"centered"},tags:["autodocs"]},e={args:{label:"기본 체크박스"}},a={args:{label:"선택된 체크박스",value:!0}},r={args:{label:"비활성화 체크박스",isDisabled:!0}},s={args:{label:"비활성화 선택 상태",value:!0,isDisabled:!0}};var o,t,c;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`{
+import{E as D}from"./ECheckbox-DOg3yMAR.js";import"./jsx-runtime-BjG_zV1W.js";import"./index-BNURykns.js";const f={title:"Components/ECheckbox",component:D,parameters:{layout:"centered"},tags:["autodocs"]},e={args:{label:"기본 체크박스"}},a={args:{label:"선택된 체크박스",value:!0}},r={args:{label:"비활성화 체크박스",isDisabled:!0}},s={args:{label:"비활성화 선택 상태",value:!0,isDisabled:!0}};var o,t,c;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`{
   args: {
     label: '기본 체크박스'
   }
