@@ -33,21 +33,26 @@ export function ECheckboxGroup({
   gap,
   onChange
 }: ECheckboxGroupProps) {
-  const isControlled = values !== undefined;
-  const [internalValues, setInternalValues] = useState<ECheckboxValue[]>(values ?? []);
-  const currentValues = isControlled ? values : internalValues;
-  const handleChange = (optionValue: ECheckboxValue, checked: boolean) => {
-    const next = checked ? [...currentValues, optionValue] : currentValues.filter(v => v !== optionValue);
-
-    if (!isControlled) setInternalValues(next);
-    if (onChange) onChange(next);
-  };
   const cn = [style.ECheckboxGroup, style[direction], className].filter(Boolean).join(' ');
   const gapValue = typeof gap === 'number' ? `${gap}px` : gap;
+  const isControlled = values !== undefined;
+  const [internalValues, setInternalValues] = useState<ECheckboxValue[]>(values ?? []);
+  const currentValues = values ?? internalValues;
+
+  const handleChange = (optionValue: ECheckboxValue, checked: boolean) => {
+    const next = checked
+      ? currentValues.includes(optionValue)
+        ? currentValues
+        : [...currentValues, optionValue]
+      : currentValues.filter(v => v !== optionValue);
+
+    if (!isControlled) setInternalValues(next);
+    onChange?.(next);
+  };
 
   useEffect(() => {
-    if (isControlled) setInternalValues(values);
-  }, [values, isControlled]);
+    if (values !== undefined) setInternalValues(values);
+  }, [values]);
 
   return (
     <div
