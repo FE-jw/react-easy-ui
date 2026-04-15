@@ -1,10 +1,28 @@
-import { Meta, StoryObj } from '@storybook/react';
 import { EToggleSwitch } from './EToggleSwitch';
 
-declare const meta: Meta<typeof EToggleSwitch>;
+declare const meta: {
+    title: string;
+    component: typeof EToggleSwitch;
+    parameters: {
+        layout: string;
+    };
+    tags: string[];
+    render: () => import("react/jsx-runtime").JSX.Element;
+};
 export default meta;
-type Story = StoryObj<typeof EToggleSwitch>;
-export declare const False: Story;
-export declare const True: Story;
-export declare const DisabledFalse: Story;
-export declare const DisabledTrue: Story;
+export declare const False: {
+    args: {
+        value: boolean;
+    };
+};
+export declare const True: {
+    args: {
+        value: boolean;
+    };
+};
+export declare const Disabled: {
+    args: {
+        value: boolean;
+        isDisabled: boolean;
+    };
+};

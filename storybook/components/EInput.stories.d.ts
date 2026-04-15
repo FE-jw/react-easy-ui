@@ -1,8 +1,22 @@
-import { Meta, StoryObj } from '@storybook/react';
 import { EInput } from './EInput';
 
-declare const meta: Meta<typeof EInput>;
+declare const meta: {
+    title: string;
+    component: typeof EInput;
+    parameters: {
+        layout: string;
+    };
+    tags: string[];
+};
 export default meta;
-type Story = StoryObj<typeof EInput>;
-export declare const Default: Story;
-export declare const Disabled: Story;
+export declare const Default: {
+    args: {
+        placeholder: string;
+    };
+};
+export declare const Disabled: {
+    args: {
+        placeholder: string;
+        isDisabled: boolean;
+    };
+};

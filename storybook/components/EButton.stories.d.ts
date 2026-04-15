@@ -1,9 +1,29 @@
-import { Meta, StoryObj } from '@storybook/react';
 import { EButton } from './EButton';
 
-declare const meta: Meta<typeof EButton>;
+declare const meta: {
+    title: string;
+    component: typeof EButton;
+    parameters: {
+        layout: string;
+    };
+    tags: string[];
+};
 export default meta;
-type Story = StoryObj<typeof EButton>;
-export declare const Primary: Story;
-export declare const Secondary: Story;
-export declare const Disabled: Story;
+export declare const Primary: {
+    args: {
+        children: string;
+        variant: string;
+    };
+};
+export declare const Secondary: {
+    args: {
+        children: string;
+        variant: string;
+    };
+};
+export declare const Disabled: {
+    args: {
+        children: string;
+        isDisabled: boolean;
+    };
+};
