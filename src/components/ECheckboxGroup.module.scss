@@ -1,0 +1,22 @@
+@use './../assets/style/common.scss';
+
+:root {
+  --easy-checkbox-group-display: inline-flex;
+  --easy-checkbox-group-gap: 10px;
+  --easy-checkbox-group-vertical-align: top;
+}
+
+.ECheckboxGroup {
+  display: var(--easy-checkbox-group-display);
+  gap: var(--easy-checkbox-group-gap);
+  vertical-align: var(--easy-checkbox-group-vertical-align);
+
+  &.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &.vertical {
+    flex-direction: column;
+  }
+}

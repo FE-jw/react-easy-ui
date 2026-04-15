@@ -1,0 +1,56 @@
+:root {
+  --easy-input-display: block;
+  --easy-input-width: 100%;
+  --easy-input-height: 40px;
+  --easy-input-padding: 0 10px;
+  --easy-input-border: 1px solid var(--easy-cm-gray);
+  --easy-input-font-family: inherit;
+  --easy-input-font-size: 14px;
+  --easy-input-font-weight: 400;
+  --easy-input-font-color: #000;
+  --easy-input-bg-color: #fff;
+  --easy-input-transition: border-color 0.2s, box-shadow 0.2s;
+  --easy-input-outline: none;
+  --easy-input-box-shadow: 0 0 4px var(--easy-primary-color);
+  --easy-input-isDisabled-bg-color: #f0f0f0;
+  --easy-input-isDisabled-cursor: not-allowed;
+}
+
+.EInput {
+  display: var(--easy-input-display);
+  width: var(--easy-input-width);
+  height: var(--easy-input-height);
+  padding: var(--easy-input-padding);
+  border: var(--easy-input-border);
+  border-radius: var(--easy-border-radius-small);
+  font-family: var(--easy-input-font-family);
+  font-size: var(--easy-input-font-size);
+  font-weight: var(--easy-input-font-weight);
+  color: var(--easy-input-font-color);
+  background-color: var(--easy-input-bg-color);
+  transition: var(--easy-input-transition);
+  outline: var(--easy-input-outline);
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &:hover:not(:disabled) {
+    border-color: var(--easy-primary-color);
+  }
+
+  &:focus:not(:disabled) {
+    border-color: var(--easy-primary-color);
+    box-shadow: var(--easy-input-box-shadow);
+  }
+
+  &::placeholder {
+    font-size: var(--easy-input-font-size);
+    color: var(--easy-cm-gray);
+  }
+
+  &:disabled {
+    opacity: 1;
+    background-color: var(--easy-input-isDisabled-bg-color);
+    cursor: var(--easy-input-isDisabled-cursor);
+  }
+}

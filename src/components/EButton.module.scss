@@ -1,0 +1,62 @@
+@use 'sass:color';
+@use './../assets/style/common.scss';
+
+:root {
+  --easy-button-display: inline-flex;
+  --easy-button-justify-content: center;
+  --easy-button-align-items: center;
+  --easy-button-height: 40px;
+  --easy-button-padding: 5px 10px;
+  --easy-button-border: none;
+  --easy-button-line-height: 1.2;
+  --easy-button-font-family: inherit;
+  --easy-button-font-size: 14px;
+  --easy-button-font-color: #fff;
+  --easy-button-font-weight: 400;
+  --easy-button-cursor: pointer;
+  --easy-button-transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  --easy-button-vertical-align: top;
+  --easy-button-isDisabled-cursor: not-allowed;
+}
+
+.EButton {
+  display: var(--easy-button-display);
+  justify-content: var(--easy-button-justify-content);
+  align-items: var(--easy-button-align-items);
+  height: var(--easy-button-height);
+  padding: var(--easy-button-padding);
+  border: var(--easy-button-border);
+  border-radius: var(--easy-border-radius-small);
+  font-family: var(--easy-button-font-family);
+  line-height: var(--easy-button-line-height);
+  font-size: var(--easy-button-font-size);
+  font-weight: var(--easy-button-font-weight);
+  cursor: var(--easy-button-cursor);
+  transition: var(--easy-button-transition);
+  vertical-align: var(--easy-button-vertical-align);
+  box-sizing: border-box;
+
+  &.primary {
+    color: var(--easy-primary-font-color);
+    background-color: var(--easy-primary-color);
+
+    &:hover {
+      background-color: var(--easy-primary-hover-color);
+    }
+  }
+
+  &.secondary {
+    color: var(--easy-secondary-font-color);
+    background-color: var(--easy-secondary-color);
+
+    &:hover {
+      background-color: var(--easy-secondary-hover-color);
+    }
+  }
+
+  &.isDisabled {
+    color: var(--easy-button-font-color);
+    background-color: var(--easy-disabled-color);
+    cursor: var(--easy-button-isDisabled-cursor);
+  }
+}

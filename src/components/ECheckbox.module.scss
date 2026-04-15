@@ -1,0 +1,96 @@
+@use './../assets/style/common.scss';
+
+:root {
+  --easy-checkbox-display: inline-flex;
+  --easy-checkbox-align-items: center;
+  --easy-checkbox-gap: 4px;
+  --easy-checkbox-cursor: pointer;
+  --easy-checkbox-user-select: none;
+  --easy-checkbox-isDisabled-cursor: not-allowed;
+  --easy-checkbox-icon-size: 18px;
+  --easy-checkbox-icon-border: 1px solid var(--easy-cm-gray);
+  --easy-checkbox-icon-radius: 4px;
+  --easy-checkbox-icon-background-color: #fff;
+  --easy-checkbox-icon-transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  --easy-checkbox-label-color: #000;
+  --easy-checkbox-label-font-size: 14px;
+  --easy-checkbox-focus-shadow: 0 0 0 3px rgba(67, 160, 71, 0.18);
+}
+
+.ECheckbox {
+  display: var(--easy-checkbox-display);
+  align-items: var(--easy-checkbox-align-items);
+  gap: var(--easy-checkbox-gap);
+  position: relative;
+  cursor: var(--easy-checkbox-cursor);
+  user-select: var(--easy-checkbox-user-select);
+
+  .checkbox {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    margin: 0;
+    cursor: inherit;
+
+    &:focus-visible + .icon {
+      box-shadow: var(--easy-checkbox-focus-shadow);
+    }
+
+    &:checked + .icon {
+      border-color: var(--easy-primary-color);
+      background-color: var(--easy-primary-color);
+
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -58%) rotate(45deg) scale(1);
+      }
+    }
+
+    &:disabled + .icon {
+      background-color: #f0f0f0;
+    }
+  }
+
+  .icon {
+    width: var(--easy-checkbox-icon-size);
+    height: var(--easy-checkbox-icon-size);
+    position: relative;
+    flex-shrink: 0;
+    border: var(--easy-checkbox-icon-border);
+    border-radius: var(--easy-checkbox-icon-radius);
+    background-color: var(--easy-checkbox-icon-background-color);
+    transition: var(--easy-checkbox-icon-transition);
+    box-sizing: border-box;
+
+    &::after {
+      content: '';
+      width: 5px;
+      height: 9px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      opacity: 0;
+      transform: translate(-50%, -58%) rotate(45deg) scale(0.6);
+      transition:
+        opacity 0.2s,
+        transform 0.2s;
+    }
+  }
+
+  .labelText {
+    color: var(--easy-checkbox-label-color);
+    font-size: var(--easy-checkbox-label-font-size);
+    line-height: 1.4;
+  }
+
+  &.isDisabled {
+    cursor: var(--easy-checkbox-isDisabled-cursor);
+
+    .icon,
+    .labelText {
+      opacity: 0.6;
+    }
+  }
+}

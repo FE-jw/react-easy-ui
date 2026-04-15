@@ -1,0 +1,86 @@
+:root {
+  --easy-toggle-switch-display: inline-flex;
+  --easy-toggle-switch-align-items: center;
+  --easy-toggle-switch-position: relative;
+  --easy-toggle-switch-cursor: pointer;
+  --easy-toggle-switch-user-select: none;
+  --easy-toggle-switch-isDisabled-cursor: not-allowed;
+  --easy-toggle-switch-icon-width: 40px;
+  --easy-toggle-switch-icon-height: 22px;
+  --easy-toggle-switch-icon-position: relative;
+  --easy-toggle-switch-icon-border-radius: var(--easy-toggle-switch-icon-height);
+  --easy-toggle-switch-icon-background-color: var(--easy-disabled-color);
+  --easy-toggle-switch-icon-transition: background-color 0.2s;
+  --easy-toggle-switch-icon-checkd-transform: translateX(18px);
+  --easy-toggle-switch-icon-before-content: '';
+  --easy-toggle-switch-icon-before-width: 18px;
+  --easy-toggle-switch-icon-before-height: 18px;
+  --easy-toggle-switch-icon-before-position: absolute;
+  --easy-toggle-switch-icon-before-left: 2px;
+  --easy-toggle-switch-icon-before-top: 2px;
+  --easy-toggle-switch-icon-before-border-radius: 50%;
+  --easy-toggle-switch-icon-before-background-color: var(--easy-primary-font-color);
+  --easy-toggle-switch-icon-before-transition: transform 0.2s;
+}
+
+.EToggleSwitch {
+  display: var(--easy-toggle-switch-display);
+  align-items: var(--easy-toggle-switch-align-items);
+  position: var(--easy-toggle-switch-position);
+  cursor: var(--easy-toggle-switch-cursor);
+  user-select: var(--easy-toggle-switch-user-select);
+
+  // Toggle Circle Icon
+  .toggleIcon {
+    width: var(--easy-toggle-switch-icon-width);
+    height: var(--easy-toggle-switch-icon-height);
+    position: var(--easy-toggle-switch-icon-position);
+    border-radius: var(--easy-toggle-switch-icon-border-radius);
+    background-color: var(--easy-toggle-switch-icon-background-color);
+    transition: var(--easy-toggle-switch-icon-transition);
+
+    &:before {
+      content: var(--easy-toggle-switch-icon-before-content);
+      width: var(--easy-toggle-switch-icon-before-width);
+      height: var(--easy-toggle-switch-icon-before-height);
+      position: var(--easy-toggle-switch-icon-before-position);
+      left: var(--easy-toggle-switch-icon-before-left);
+      top: var(--easy-toggle-switch-icon-before-top);
+      border-radius: var(--easy-toggle-switch-icon-before-border-radius);
+      background-color: var(--easy-toggle-switch-icon-before-background-color);
+      transition: var(--easy-toggle-switch-icon-before-transition);
+    }
+  }
+
+  // Input Checkbox
+  .checkbox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: var(--easy-toggle-switch-icon-height);
+    -webkit-appearance: none;
+    appearance: none;
+
+    &:checked + .toggleIcon {
+      background: var(--easy-primary-color);
+    }
+
+    &:checked + .toggleIcon:before {
+      transform: var(--easy-toggle-switch-icon-checkd-transform);
+    }
+
+    &:disabled {
+      opacity: 1;
+    }
+  }
+
+  &.isDisabled {
+    cursor: var(--easy-toggle-switch-isDisabled-cursor);
+
+    .toggleIcon:before {
+      opacity: 0.6;
+    }
+  }
+}

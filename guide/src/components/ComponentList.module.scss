@@ -1,0 +1,18 @@
+.listWrap {
+}
+
+.listItem {
+  & + .listItem {
+    margin-top: 1rem;
+  }
+}
+
+.name {
+  margin: 0;
+  font-weight: 700;
+}
+
+.description {
+  margin: 0;
+  color: var(--main-txt);
+}

@@ -1,0 +1,78 @@
+$cdn: 'https://cdn.jsdelivr.net/gh/fe-jw/fe-jw.github.io/';
+
+// Pretendard
+@each $weight, $name in (100, 'Thin'), (200, 'ExtraLight'), (300, 'Light'), (400, 'Regular'), (500, 'Medium'),
+  (600, 'SemiBold'), (700, 'Bold'), (800, 'ExtraBold'), (900, 'Black')
+{
+  @font-face {
+    font-family: 'Pretendard';
+    src:
+      local('Pretendard-' + $name),
+      url('#{$cdn}/font/Pretendard-' + $name + '.woff2') format('woff2'),
+      url('#{$cdn}/font/Pretendard-' + $name + '.woff') format('woff');
+    font-weight: $weight;
+    font-display: swap;
+  }
+}
+
+:root {
+  // Color
+  --primary-color: #43a047;
+  --secondary-color: #388e3c;
+  --thirdary-color: #2e7d32;
+  --hover-bg: #e8f5e9;
+  --focus-bg: #c8e6c9;
+  --active-bg: #a5d6a7;
+  --main-txt: #212121;
+  --main-bg: #fff;
+  --sub-bg: #fafbfc;
+  --box-shadow-color: rgba(60, 60, 60, 0.04);
+
+  --border-radius: 10px;
+
+  &[data-theme='dark'] {
+    // Color
+    --primary-color: #66bb6a;
+    --secondary-color: #388e3c;
+    --thirdary-color: #1b5e20;
+    --hover-bg: #263238;
+    --focus-bg: #37474f;
+    --active-bg: #1b5e20;
+    --main-txt: #e0f2f1;
+    --main-bg: #181c1b;
+    --sub-bg: #232826;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: none;
+  font-size: 10px;
+}
+body {
+  line-height: 1.3;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 200;
+  color: var(--main-txt);
+}
+button {
+  border: none;
+  border-radius: 0;
+  line-height: inherit;
+  font: inherit;
+  background: none;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+}
+.txt-box {
+  color: var(--primary-color);
+  background-color: var(--hover-bg);
+}

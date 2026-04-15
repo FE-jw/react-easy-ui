@@ -1,0 +1,132 @@
+.headerWrap {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) 0 env(safe-area-inset-left);
+  position: relative;
+  border-bottom: 1px solid vars(--sub-bg);
+  background: var(--main-bg);
+  box-shadow: 0 2px 8px var(--box-shadow-color);
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+}
+.title {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 16px 16px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.hamburger {
+  display: block;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+
+  span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 6px auto;
+    border-radius: var(--border-radius);
+    background: var(--primary-color);
+    transition: 0.3s;
+    position: relative;
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
+}
+nav {
+  flex-direction: column;
+  align-items: flex-start;
+  display: none;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 12px env(safe-area-inset-right) 12px env(safe-area-inset-left);
+  background: var(--main-bg);
+  box-shadow: 0 2px 8px var(--box-shadow-color);
+
+  a {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 0 auto 12px;
+    padding: 10px 18px;
+    border-radius: var(--border-radius);
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+    background: transparent;
+    transition:
+      color 0.2s,
+      background 0.2s;
+    &:hover,
+    &:focus {
+      color: var(--secondary-color);
+      background: var(--hover-bg);
+    }
+    &:active {
+      color: var(--thirdary-color);
+      background: var(--active-bg);
+    }
+  }
+}
+.open {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+    padding: 24px 32px;
+  }
+  .title {
+    padding: 0;
+    font-size: 2.4rem;
+  }
+  .hamburger {
+    display: none;
+  }
+  nav {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    padding: 0;
+    position: static;
+    background: none;
+    box-shadow: none;
+
+    a {
+      display: inline-block;
+      width: auto;
+      margin-bottom: 0;
+      padding: 6px 18px;
+      border-radius: var(--border-radius);
+      font-size: 1.7rem;
+    }
+  }
+}

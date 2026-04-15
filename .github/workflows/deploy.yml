@@ -1,0 +1,44 @@
+name: Deploy Result to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.12.1
+
+      - name: Install Yarn (Berry)
+        run: corepack enable && corepack prepare yarn@4.12.0 --activate
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build Guide
+        run: yarn build:guide
+
+      - name: Build Storybook
+        run: yarn build:storybook
+
+      - name: Move files to public
+        run: |
+          mkdir -p ./public
+          if [ -d ./guide/dist ]; then mv ./guide/dist/* ./public/; fi
+          if [ -d ./storybook-static ]; then mv ./storybook-static ./public/storybook; fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages

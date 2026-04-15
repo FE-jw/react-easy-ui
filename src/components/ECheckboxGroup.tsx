@@ -1,0 +1,75 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import style from './ECheckboxGroup.module.scss';
+import { ECheckbox } from './ECheckbox';
+
+export type ECheckboxValue = string | number;
+
+export interface ECheckboxGroupOption {
+  value: ECheckboxValue;
+  label: React.ReactNode;
+  isDisabled?: boolean;
+}
+
+export interface ECheckboxGroupProps {
+  name: string;
+  options: ECheckboxGroupOption[];
+  values?: ECheckboxValue[];
+  className?: string;
+  isDisabled?: boolean;
+  direction?: 'horizontal' | 'vertical';
+  gap?: number | string;
+  onChange?: (values: ECheckboxValue[]) => void;
+}
+
+export function ECheckboxGroup({
+  name,
+  options,
+  values,
+  className,
+  isDisabled = false,
+  direction = 'horizontal',
+  gap,
+  onChange
+}: ECheckboxGroupProps) {
+  const cn = [style.ECheckboxGroup, style[direction], className].filter(Boolean).join(' ');
+  const gapValue = typeof gap === 'number' ? `${gap}px` : gap;
+  const isControlled = values !== undefined;
+  const [internalValues, setInternalValues] = useState<ECheckboxValue[]>(values ?? []);
+  const currentValues = values ?? internalValues;
+
+  const handleChange = (optionValue: ECheckboxValue, checked: boolean) => {
+    const next = checked
+      ? currentValues.includes(optionValue)
+        ? currentValues
+        : [...currentValues, optionValue]
+      : currentValues.filter(v => v !== optionValue);
+
+    if (!isControlled) setInternalValues(next);
+    onChange?.(next);
+  };
+
+  useEffect(() => {
+    if (values !== undefined) setInternalValues(values);
+  }, [values]);
+
+  return (
+    <div
+      className={cn}
+      role="group"
+      style={gapValue ? ({ '--easy-checkbox-group-gap': gapValue } as React.CSSProperties) : undefined}
+    >
+      {options.map(option => (
+        <ECheckbox
+          key={option.value}
+          name={name}
+          label={option.label}
+          value={currentValues.includes(option.value)}
+          isDisabled={isDisabled || option.isDisabled}
+          onChange={checked => handleChange(option.value, checked)}
+        />
+      ))}
+    </div>
+  );
+}
