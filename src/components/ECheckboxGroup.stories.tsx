@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ECheckboxGroup } from './ECheckboxGroup';
 
 const meta = {
@@ -12,15 +11,15 @@ const meta = {
 export default meta;
 
 const options = [
-  { value: 'apple', text: '사과' },
-  { value: 'banana', text: '바나나' },
-  { value: 'cherry', text: '체리' },
+  { value: 'apple', label: '사과' },
+  { value: 'banana', label: '바나나' },
+  { value: 'cherry', label: '체리' }
 ];
 
 export const Default = {
   args: {
     name: 'fruit',
-    options,
+    options
   }
 };
 
@@ -28,7 +27,7 @@ export const Vertical = {
   args: {
     name: 'fruit',
     options,
-    direction: 'vertical',
+    direction: 'vertical'
   }
 };
 
@@ -36,7 +35,7 @@ export const Horizontal = {
   args: {
     name: 'fruit',
     options,
-    direction: 'horizontal',
+    direction: 'horizontal'
   }
 };
 
@@ -44,7 +43,7 @@ export const WithDefaultValues = {
   args: {
     name: 'fruit',
     options,
-    values: ['apple', 'cherry'],
+    values: ['apple', 'cherry']
   }
 };
 
@@ -53,7 +52,7 @@ export const Disabled = {
     name: 'fruit',
     options,
     isDisabled: true,
-    values: ['banana'],
+    values: ['banana']
   }
 };
 
@@ -61,28 +60,9 @@ export const PartiallyDisabled = {
   args: {
     name: 'fruit',
     options: [
-      { value: 'apple', text: '사과' },
-      { value: 'banana', text: '바나나 (비활성)', isDisabled: true },
-      { value: 'cherry', text: '체리' },
-    ],
-  }
-};
-
-export const Controlled = {
-  render: () => {
-    const [selected, setSelected] = useState<string[]>(['apple']);
-    return (
-      <div>
-        <ECheckboxGroup
-          name="fruit-controlled"
-          options={options}
-          values={selected}
-          onChange={setSelected}
-        />
-        <p style={{ marginTop: 12, fontSize: 13, color: '#555' }}>
-          선택된 값: {selected.join(', ') || '없음'}
-        </p>
-      </div>
-    );
+      { value: 'apple', label: '사과' },
+      { value: 'banana', label: '바나나 (비활성)', isDisabled: true },
+      { value: 'cherry', label: '체리' }
+    ]
   }
 };

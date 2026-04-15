@@ -4,21 +4,23 @@ import { useState, useEffect } from 'react';
 import style from './ECheckboxGroup.module.scss';
 import { ECheckbox } from './ECheckbox';
 
+export type ECheckboxValue = string | number;
+
 export interface ECheckboxGroupOption {
-  value: string;
-  text?: React.ReactNode;
+  value: ECheckboxValue;
+  label: React.ReactNode;
   isDisabled?: boolean;
 }
 
 export interface ECheckboxGroupProps {
   name: string;
   options: ECheckboxGroupOption[];
-  values?: string[];
+  values?: ECheckboxValue[];
   className?: string;
   isDisabled?: boolean;
   direction?: 'horizontal' | 'vertical';
   gap?: number | string;
-  onChange?: (values: string[]) => void;
+  onChange?: (values: ECheckboxValue[]) => void;
 }
 
 export function ECheckboxGroup({
@@ -32,9 +34,9 @@ export function ECheckboxGroup({
   onChange
 }: ECheckboxGroupProps) {
   const isControlled = values !== undefined;
-  const [internalValues, setInternalValues] = useState<string[]>(values ?? []);
+  const [internalValues, setInternalValues] = useState<ECheckboxValue[]>(values ?? []);
   const currentValues = isControlled ? values : internalValues;
-  const handleChange = (optionValue: string, checked: boolean) => {
+  const handleChange = (optionValue: ECheckboxValue, checked: boolean) => {
     const next = checked ? [...currentValues, optionValue] : currentValues.filter(v => v !== optionValue);
 
     if (!isControlled) setInternalValues(next);
@@ -57,7 +59,7 @@ export function ECheckboxGroup({
         <ECheckbox
           key={option.value}
           name={name}
-          text={option.text}
+          label={option.label}
           value={currentValues.includes(option.value)}
           isDisabled={isDisabled || option.isDisabled}
           onChange={checked => handleChange(option.value, checked)}

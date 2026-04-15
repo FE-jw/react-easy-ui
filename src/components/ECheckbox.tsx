@@ -6,14 +6,14 @@ import style from './ECheckbox.module.scss';
 export interface ECheckboxProps {
   name: string;
   value?: boolean;
-  text?: React.ReactNode;
+  label: React.ReactNode;
   className?: string;
   isDisabled?: boolean;
-  [key: string]: unknown;
   onChange?: (value: boolean) => void;
+  [key: string]: unknown;
 }
 
-export function ECheckbox({ name, value, text, className, isDisabled = false, onChange, ...rest }: ECheckboxProps) {
+export function ECheckbox({ name, value, label, className, isDisabled = false, onChange, ...rest }: ECheckboxProps) {
   const cn = `${className ? `${className} ` : ''}${isDisabled ? `${style.isDisabled} ` : ''}${style.ECheckbox}`;
   const [internalChecked, setInternalChecked] = useState<boolean>(value ?? false);
   const isControlled = value !== undefined;
@@ -43,7 +43,7 @@ export function ECheckbox({ name, value, text, className, isDisabled = false, on
         {...rest}
       />
       <span className={style.icon} aria-hidden="true" />
-      {text ? <span className={style.labelText}>{text}</span> : null}
+      {label ? <span className={style.labelText}>{label}</span> : null}
     </label>
   );
 }

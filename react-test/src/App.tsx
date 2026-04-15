@@ -1,17 +1,18 @@
 import { useState } from 'react';
 
 // Components
-import { EButton, EInput, EToggleSwitch, ECheckbox, ECheckboxGroup } from './../../src';
+import { EButton, EInput, EToggleSwitch, ECheckbox, ECheckboxGroup, type ECheckboxValue } from './../../src';
 
 export default function App() {
   const [toggleSwitch, setToggleSwitch] = useState<boolean>(false);
 
   // CheckboxGroup
-  const [groupValues, setGroupValues] = useState<string[]>(['banana']);
+  const [groupValues, setGroupValues] = useState<ECheckboxValue[]>(['banana']);
   const groupOptions = [
-    { value: 'apple', text: '사과' },
-    { value: 'banana', text: '바나나' },
-    { value: 'orange', text: '오렌지', isDisabled: true }
+    { value: 'apple', label: '사과' },
+    { value: 'banana', label: '바나나' },
+    { value: 'orange', label: '오렌지', isDisabled: true },
+    { value: 1, label: 1 }
   ];
 
   return (
@@ -43,7 +44,7 @@ export default function App() {
       <div className="flex gap-[10px]">
         <ECheckbox
           name={'fruit'}
-          text={'Apple'}
+          label={'Apple'}
           isDisabled={true}
           onChange={status => {
             console.log(status);
@@ -51,24 +52,31 @@ export default function App() {
         />
         <ECheckbox
           name={'fruit'}
-          text={'Orange'}
+          label={'Orange'}
           onChange={status => {
             console.log(status);
           }}
         />
       </div>
-      <ECheckboxGroup name="group-1" options={groupOptions} values={groupValues} onChange={setGroupValues} />
       <ECheckboxGroup
-        name="group-2"
+        name="group-1"
         options={groupOptions}
         values={groupValues}
-        direction="vertical"
         onChange={value => {
           console.log(value);
           setGroupValues(value);
         }}
       />
-      <p style={{ fontSize: 13, color: '#555' }}>선택된 값: {groupValues.join(', ') || '없음'}</p>
+      <ECheckboxGroup
+        name="group-2"
+        direction="vertical"
+        options={groupOptions}
+        values={groupValues}
+        onChange={value => {
+          console.log(value);
+          setGroupValues(value);
+        }}
+      />
     </>
   );
 }
