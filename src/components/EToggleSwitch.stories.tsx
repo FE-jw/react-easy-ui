@@ -1,39 +1,35 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { EToggleSwitch } from './EToggleSwitch';
 
-const meta: Meta<typeof EToggleSwitch> = {
+const meta = {
   title: 'Components/EToggleSwitch',
   component: EToggleSwitch,
   parameters: {
     layout: 'centered'
   },
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  render: function Render() {
+    const [{ value }, updateArgs] = useArgs();
+    return <EToggleSwitch value={value} onChange={newValue => updateArgs({ value: newValue })} />;
+  }
 };
 export default meta;
-type Story = StoryObj<typeof EToggleSwitch>;
 
-export const False: Story = {
+export const False = {
   args: {
     value: false
   }
 };
 
-export const True: Story = {
+export const True = {
   args: {
     value: true
   }
 };
 
-export const DisabledFalse: Story = {
+export const Disabled = {
   args: {
     value: false,
-    isDisabled: true
-  }
-};
-
-export const DisabledTrue: Story = {
-  args: {
-    value: true,
     isDisabled: true
   }
 };

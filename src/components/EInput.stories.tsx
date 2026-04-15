@@ -1,7 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { EInput } from './EInput';
 
-const meta: Meta<typeof EInput> = {
+const meta = {
   title: 'Components/EInput',
   component: EInput,
   parameters: {
@@ -10,15 +9,14 @@ const meta: Meta<typeof EInput> = {
   tags: ['autodocs']
 };
 export default meta;
-type Story = StoryObj<typeof EInput>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     placeholder: 'placeholder'
   }
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     placeholder: 'placeholder',
     isDisabled: true
