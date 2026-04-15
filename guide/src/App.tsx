@@ -29,10 +29,10 @@ export default function App() {
           <SectionTit title="컴포넌트 목록" />
           <ComponentList />
         </section>
-        <section id="custom">
+        {/* <section id="custom">
           <SectionTit title="커스텀 방법" />
           <Text text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, enim?" />
-        </section>
+        </section> */}
       </main>
       <Footer />
     </div>
