@@ -1,7 +1,17 @@
 import { useState } from 'react';
 
 // Components
-import { EButton, EInput, EToggleSwitch, ECheckbox, ECheckboxGroup, type ECheckboxValue } from './../../src';
+import {
+  EButton,
+  EInput,
+  EToggleSwitch,
+  ECheckbox,
+  ECheckboxGroup,
+  ERadio,
+  ERadioGroup,
+  type ECheckboxValue,
+  type ERadioValue
+} from './../../src';
 
 export default function App() {
   const [toggleSwitch, setToggleSwitch] = useState<boolean>(false);
@@ -9,6 +19,15 @@ export default function App() {
   // CheckboxGroup
   const [groupValues, setGroupValues] = useState<ECheckboxValue[]>(['banana']);
   const groupOptions = [
+    { value: 'apple', label: '사과' },
+    { value: 'banana', label: '바나나' },
+    { value: 'orange', label: '오렌지', isDisabled: true },
+    { value: 1, label: 1 }
+  ];
+
+  // RadioGroup
+  const [radioValue, setRadioValue] = useState<ERadioValue>('banana');
+  const radioOptions = [
     { value: 'apple', label: '사과' },
     { value: 'banana', label: '바나나' },
     { value: 'orange', label: '오렌지', isDisabled: true },
@@ -75,6 +94,42 @@ export default function App() {
         onChange={value => {
           console.log(value);
           setGroupValues(value);
+        }}
+      />
+      <div className="flex gap-[10px]">
+        <ERadio
+          name="radio-single"
+          label="Apple"
+          onChange={status => {
+            console.log(status);
+          }}
+        />
+        <ERadio
+          name="radio-single"
+          label="Orange"
+          isDisabled={true}
+          onChange={status => {
+            console.log(status);
+          }}
+        />
+      </div>
+      <ERadioGroup
+        name="radio-group-1"
+        options={radioOptions}
+        value={radioValue}
+        onChange={value => {
+          console.log(value);
+          setRadioValue(value);
+        }}
+      />
+      <ERadioGroup
+        name="radio-group-2"
+        direction="vertical"
+        options={radioOptions}
+        value={radioValue}
+        onChange={value => {
+          console.log(value);
+          setRadioValue(value);
         }}
       />
     </>
