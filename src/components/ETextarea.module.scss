@@ -1,0 +1,85 @@
+:root {
+  --easy-textarea-counter-font-size: 12px;
+  --easy-textarea-counter-color: var(--easy-cm-gray);
+  --easy-textarea-counter-margin-top: 4px;
+  --easy-textarea-display: block;
+  --easy-textarea-width: 100%;
+  --easy-textarea-padding: 8px 10px;
+  --easy-textarea-border: 1px solid var(--easy-cm-gray);
+  --easy-textarea-font-family: inherit;
+  --easy-textarea-font-size: 14px;
+  --easy-textarea-font-weight: 400;
+  --easy-textarea-font-color: #000;
+  --easy-textarea-bg-color: #fff;
+  --easy-textarea-transition: border-color 0.2s, box-shadow 0.2s;
+  --easy-textarea-outline: none;
+  --easy-textarea-box-shadow: 0 0 4px var(--easy-primary-color);
+  --easy-textarea-isDisabled-bg-color: #f0f0f0;
+  --easy-textarea-isDisabled-cursor: not-allowed;
+}
+
+.wrapper {
+  display: block;
+  width: 100%;
+}
+
+.ETextarea {
+  display: var(--easy-textarea-display);
+  width: var(--easy-textarea-width);
+  padding: var(--easy-textarea-padding);
+  border: var(--easy-textarea-border);
+  border-radius: var(--easy-border-radius-small);
+  font-family: var(--easy-textarea-font-family);
+  font-size: var(--easy-textarea-font-size);
+  font-weight: var(--easy-textarea-font-weight);
+  color: var(--easy-textarea-font-color);
+  background-color: var(--easy-textarea-bg-color);
+  transition: var(--easy-textarea-transition);
+  outline: var(--easy-textarea-outline);
+  box-sizing: border-box;
+
+  &:hover:not(:disabled) {
+    border-color: var(--easy-primary-color);
+  }
+
+  &:focus:not(:disabled) {
+    border-color: var(--easy-primary-color);
+    box-shadow: var(--easy-textarea-box-shadow);
+  }
+
+  &::placeholder {
+    font-size: var(--easy-textarea-font-size);
+    color: var(--easy-cm-gray);
+  }
+
+  &:disabled {
+    opacity: 1;
+    background-color: var(--easy-textarea-isDisabled-bg-color);
+    cursor: var(--easy-textarea-isDisabled-cursor);
+  }
+
+  &.none {
+    resize: none;
+  }
+  &.both {
+    resize: both;
+  }
+  &.horizontal {
+    resize: horizontal;
+  }
+  &.vertical {
+    resize: vertical;
+  }
+}
+
+.counter {
+  display: block;
+  margin-top: var(--easy-textarea-counter-margin-top);
+  font-size: var(--easy-textarea-counter-font-size);
+  color: var(--easy-textarea-counter-color);
+  text-align: right;
+
+  .max {
+    font-weight: bold;
+  }
+}

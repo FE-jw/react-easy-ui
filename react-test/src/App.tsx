@@ -4,6 +4,7 @@ import { useState } from 'react';
 import {
   EButton,
   EInput,
+  ETextarea,
   EToggleSwitch,
   ECheckbox,
   ECheckboxGroup,
@@ -132,6 +133,23 @@ export default function App() {
           setRadioValue(value);
         }}
       />
+      <div className="w-[300px] mt-[10px]">
+        <ETextarea
+          name="asd"
+          placeholder="textarea"
+          maxLength={500}
+          showCounter={true}
+          onChange={value => {
+            console.log(value);
+          }}
+        />
+      </div>
+      <div className="w-[300px] mt-[10px]">
+        <ETextarea placeholder="disabled" isDisabled={true} resize="both" />
+      </div>
+      <div className="w-[300px] mt-[10px]">
+        <ETextarea placeholder="resize: none" resize="none" />
+      </div>
     </>
   );
 }
