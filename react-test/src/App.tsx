@@ -133,6 +133,18 @@ export default function App() {
           setRadioValue(value);
         }}
       />
+      <ECheckbox
+        name={'all'}
+        onChange={status => {
+          console.log(status);
+        }}
+      />
+      <ERadio
+        name="testest"
+        onChange={status => {
+          console.log(status);
+        }}
+      />
       <div className="w-[300px] mt-[10px]">
         <ETextarea
           name="asd"

@@ -6,7 +6,7 @@ import style from './ECheckbox.module.scss';
 export interface ECheckboxProps {
   name: string;
   value?: boolean;
-  label: React.ReactNode;
+  label?: React.ReactNode;
   className?: string;
   isDisabled?: boolean;
   onChange?: (value: boolean) => void;
