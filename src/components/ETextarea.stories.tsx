@@ -36,3 +36,11 @@ export const CustomRows = {
     rows: 8
   }
 };
+
+export const ShowCounter = {
+  args: {
+    placeholder: 'placeholder',
+    showCounter: true,
+    maxLength: 100
+  }
+};
