@@ -7,3 +7,4 @@ export {ETextarea, type ETextareaProps} from './components/ETextarea';
 export {EToggleSwitch, type EToggleSwitchProps} from './components/EToggleSwitch';
 export {ERadio, type ERadioProps} from './components/ERadio';
 export {ERadioGroup, type ERadioGroupProps, type ERadioGroupOption, type ERadioValue} from './components/ERadioGroup';
+export {ESelect, type ESelectProps, type ESelectOption} from './components/ESelect';

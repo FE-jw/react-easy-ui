@@ -10,8 +10,10 @@ import {
   ECheckboxGroup,
   ERadio,
   ERadioGroup,
+  ESelect,
   type ECheckboxValue,
-  type ERadioValue
+  type ERadioValue,
+  type ESelectOption
 } from './../../src';
 
 export default function App() {
@@ -33,6 +35,15 @@ export default function App() {
     { value: 'banana', label: '바나나' },
     { value: 'orange', label: '오렌지', isDisabled: true },
     { value: 1, label: 1 }
+  ];
+
+  // Select
+  const [selectValue, setSelectValue] = useState<ESelectOption['value']>('');
+  const selectOptions: ESelectOption[] = [
+    { value: 'apple', label: '사과' },
+    { value: 'banana', label: '바나나' },
+    { value: 'orange', label: '오렌지', isDisabled: true },
+    { value: 'grape', label: '포도' }
   ];
 
   return (
@@ -161,6 +172,20 @@ export default function App() {
       </div>
       <div className="w-[300px] mt-[10px]">
         <ETextarea placeholder="resize: none" resize="none" />
+      </div>
+      <div className="w-[300px] mt-[10px]">
+        <ESelect
+          options={selectOptions}
+          value={selectValue}
+          placeholder="Placeholder"
+          onChange={value => {
+            console.log(value);
+            setSelectValue(value);
+          }}
+        />
+      </div>
+      <div className="w-[300px] mt-[10px]">
+        <ESelect options={selectOptions} placeholder="disabled" isDisabled={true} />
       </div>
     </>
   );
