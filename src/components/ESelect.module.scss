@@ -1,0 +1,179 @@
+@use './../assets/style/common.scss';
+
+:root {
+  --easy-select-width: 100%;
+  --easy-select-height: 40px;
+  --easy-select-padding: 0 36px 0 10px;
+  --easy-select-border: 1px solid var(--easy-cm-gray);
+  --easy-select-font-family: inherit;
+  --easy-select-font-size: 14px;
+  --easy-select-font-weight: 400;
+  --easy-select-font-color: #000;
+  --easy-select-placeholder-color: var(--easy-cm-gray);
+  --easy-select-bg-color: #fff;
+  --easy-select-transition: border-color 0.2s, box-shadow 0.2s;
+  --easy-select-box-shadow: 0 0 4px var(--easy-primary-color);
+  --easy-select-disabled-bg-color: #f0f0f0;
+  --easy-select-disabled-cursor: not-allowed;
+  --easy-select-dropdown-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --easy-select-option-hover-bg: var(--easy-secondary-color);
+  --easy-select-option-selected-color: var(--easy-primary-color);
+  --easy-select-option-selected-bg: var(--easy-secondary-color);
+  --easy-select-option-disabled-color: var(--easy-cm-gray);
+}
+
+.ESelect {
+  position: relative;
+  width: var(--easy-select-width);
+  font-family: var(--easy-select-font-family);
+  font-size: var(--easy-select-font-size);
+  box-sizing: border-box;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--easy-select-height);
+  padding: var(--easy-select-padding);
+  border: var(--easy-select-border);
+  border-radius: var(--easy-border-radius-small);
+  background-color: var(--easy-select-bg-color);
+  color: var(--easy-select-font-color);
+  font-weight: var(--easy-select-font-weight);
+  transition: var(--easy-select-transition);
+  cursor: pointer;
+  box-sizing: border-box;
+  user-select: none;
+
+  .ESelect:not(.disabled):hover & {
+    border-color: var(--easy-primary-color);
+  }
+
+  .ESelect.open & {
+    border-color: var(--easy-primary-color);
+    box-shadow: var(--easy-select-box-shadow);
+  }
+
+  .ESelect.disabled & {
+    background-color: var(--easy-select-disabled-bg-color);
+    cursor: var(--easy-select-disabled-cursor);
+  }
+}
+
+.value {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholder {
+  flex: 1;
+  color: var(--easy-select-placeholder-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--easy-cm-gray);
+  transform: translateY(-50%);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+
+  .ESelect.open & {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(var(--easy-select-height) + 4px);
+  left: 0;
+  right: 0;
+  background-color: var(--easy-select-bg-color);
+  border: var(--easy-select-border);
+  border-radius: var(--easy-border-radius-small);
+  box-shadow: var(--easy-select-dropdown-shadow);
+  z-index: 100;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.searchWrapper {
+  padding: 6px 8px 0;
+}
+
+.searchInput {
+  display: block;
+  width: 100%;
+  height: 32px;
+  padding: 0 8px;
+  border: var(--easy-select-border);
+  border-radius: var(--easy-border-radius-small);
+  font-family: var(--easy-select-font-family);
+  font-size: var(--easy-select-font-size);
+  color: var(--easy-select-font-color);
+  background-color: var(--easy-select-bg-color);
+  outline: none;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: var(--easy-primary-color);
+    box-shadow: var(--easy-select-box-shadow);
+  }
+
+  &::placeholder {
+    color: var(--easy-select-placeholder-color);
+  }
+}
+
+.optionList {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: var(--easy-select-font-size);
+  color: var(--easy-select-font-color);
+  transition: background-color 0.15s;
+
+  &:hover:not(.optionDisabled) {
+    background-color: var(--easy-select-option-hover-bg);
+  }
+
+  &.focused {
+    background-color: var(--easy-select-option-hover-bg);
+  }
+
+  &.selected {
+    color: var(--easy-select-option-selected-color);
+    background-color: var(--easy-select-option-selected-bg);
+    font-weight: 600;
+  }
+
+  &.optionDisabled {
+    color: var(--easy-select-option-disabled-color);
+    cursor: not-allowed;
+  }
+}
+
+.noOptions {
+  padding: 12px 10px;
+  font-size: var(--easy-select-font-size);
+  color: var(--easy-select-placeholder-color);
+  text-align: center;
+}

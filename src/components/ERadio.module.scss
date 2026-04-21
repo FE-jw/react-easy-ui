@@ -1,0 +1,101 @@
+@use './../assets/style/common.scss';
+
+:root {
+  --easy-radio-display: inline-flex;
+  --easy-radio-align-items: center;
+  --easy-radio-gap: 4px;
+  --easy-radio-cursor: pointer;
+  --easy-radio-user-select: none;
+  --easy-radio-icon-size: 18px;
+  --easy-radio-icon-border: 1px solid var(--easy-cm-gray);
+  --easy-radio-icon-background-color: #fff;
+  --easy-radio-icon-transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  --easy-radio-icon-dot-size: 8px;
+  --easy-radio-isDisabled-opacity: 0.5;
+  --easy-radio-isDisabled-cursor: not-allowed;
+  --easy-radio-isDisabled-icon-background-color: #f0f0f0;
+  --easy-radio-label-line-height: 1.4;
+  --easy-radio-label-font-size: 14px;
+  --easy-radio-label-color: #000;
+  --easy-radio-focus-shadow: 0 0 0 3px var(--easy-primary-color);
+}
+
+.ERadio {
+  display: var(--easy-radio-display);
+  align-items: var(--easy-radio-align-items);
+  gap: var(--easy-radio-gap);
+  position: relative;
+  cursor: var(--easy-radio-cursor);
+  user-select: var(--easy-radio-user-select);
+
+  .radio {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    margin: 0;
+    cursor: inherit;
+
+    &:focus-visible + .icon {
+      box-shadow: var(--easy-radio-focus-shadow);
+    }
+
+    &:checked + .icon {
+      border-color: var(--easy-primary-color);
+      background-color: var(--easy-primary-color);
+
+      &:after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    &:disabled + .icon {
+      border-color: var(--easy-cm-gray);
+      background-color: var(--easy-radio-isDisabled-icon-background-color);
+    }
+  }
+
+  .icon {
+    width: var(--easy-radio-icon-size);
+    height: var(--easy-radio-icon-size);
+    position: relative;
+    flex-shrink: 0;
+    border: var(--easy-radio-icon-border);
+    border-radius: 50%;
+    background-color: var(--easy-radio-icon-background-color);
+    transition: var(--easy-radio-icon-transition);
+    box-sizing: border-box;
+
+    &:after {
+      content: '';
+      width: var(--easy-radio-icon-dot-size);
+      height: var(--easy-radio-icon-dot-size);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border-radius: 50%;
+      background-color: #fff;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.4);
+      transition:
+        opacity 0.2s,
+        transform 0.2s;
+    }
+  }
+
+  .labelText {
+    color: var(--easy-radio-label-color);
+    font-size: var(--easy-radio-label-font-size);
+    line-height: var(--easy-radio-label-line-height);
+  }
+
+  &.isDisabled {
+    cursor: var(--easy-radio-isDisabled-cursor);
+
+    .icon,
+    .labelText {
+      opacity: var(--easy-radio-isDisabled-opacity);
+    }
+  }
+}
