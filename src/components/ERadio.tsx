@@ -1,9 +1,9 @@
 'use client';
 
 import { ChangeEvent, useEffect, useState } from 'react';
-import style from './ECheckbox.module.scss';
+import style from './ERadio.module.scss';
 
-export interface ECheckboxProps {
+export interface ERadioProps {
   name: string;
   value?: boolean;
   label?: React.ReactNode;
@@ -13,8 +13,8 @@ export interface ECheckboxProps {
   [key: string]: unknown;
 }
 
-export function ECheckbox({ name, value, label, className, isDisabled = false, onChange, ...rest }: ECheckboxProps) {
-  const cn = `${className ? `${className} ` : ''}${isDisabled ? `${style.isDisabled} ` : ''}${style.ECheckbox}`;
+export function ERadio({ name, value, label, className, isDisabled = false, onChange, ...rest }: ERadioProps) {
+  const cn = `${className ? `${className} ` : ''}${isDisabled ? `${style.isDisabled} ` : ''}${style.ERadio}`;
   const [internalChecked, setInternalChecked] = useState<boolean>(value ?? false);
   const isControlled = value !== undefined;
 
@@ -34,9 +34,9 @@ export function ECheckbox({ name, value, label, className, isDisabled = false, o
   return (
     <label className={cn}>
       <input
-        type="checkbox"
+        type="radio"
         name={name}
-        className={style.checkbox}
+        className={style.radio}
         checked={isControlled ? value : internalChecked}
         disabled={isDisabled}
         onChange={handleOnChange}

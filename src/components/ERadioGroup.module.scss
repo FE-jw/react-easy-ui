@@ -1,0 +1,22 @@
+@use './../assets/style/common.scss';
+
+:root {
+  --easy-radio-group-display: inline-flex;
+  --easy-radio-group-gap: 10px;
+  --easy-radio-group-vertical-align: top;
+}
+
+.ERadioGroup {
+  display: var(--easy-radio-group-display);
+  gap: var(--easy-radio-group-gap);
+  vertical-align: var(--easy-radio-group-vertical-align);
+
+  &.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &.vertical {
+    flex-direction: column;
+  }
+}
