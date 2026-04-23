@@ -187,6 +187,9 @@ export default function App() {
       <div className="w-[300px] mt-[10px]">
         <ESelect options={selectOptions} placeholder="disabled" isDisabled={true} />
       </div>
+      <div className="w-[300px] mt-[10px]">
+        <ESelect options={selectOptions} placeholder="searchable" searchable={true} />
+      </div>
     </>
   );
 }
